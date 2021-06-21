@@ -54,8 +54,8 @@ const DOMUtils = () => {
     const offTop = orientation === "x" ? target.offsetHeight / 2 : 0;
     const offLeft = orientation === "y" ? target.offsetWidth / 2 : 0;
     if (e.type === "touchmove") {
-      target.style.top = e.touches[0].y - offTop + "px";
-      target.style.left = e.touches[0].x - offLeft + "px";
+      target.style.top = e.touches[0].clientY - offTop + "px";
+      target.style.left = e.touches[0].clientX - offLeft + "px";
     } else {
       target.style.top = e.y - offTop + "px";
       target.style.left = e.x - offLeft + "px";
