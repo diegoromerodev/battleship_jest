@@ -44,7 +44,6 @@ const Cells = (props) => {
     }
 
     if (result) setShipLocations((prevState) => [...prevState]);
-    console.warn(board.checkAllSunk());
     if (board.checkAllSunk()) {
       setGameOver(true);
       return;

@@ -10,12 +10,12 @@ import largeShipX from "../../assets/largeShipX.png";
 import xlShipX from "../../assets/xlShipX.png";
 
 const ElasticDiv = styled.div.attrs((props) => ({
-  top: props.top + "px",
-  left: props.left + "px",
+  top: props.top + window.scrollY + "px",
+  left: props.left + window.scrollX + "px",
   [props.orientation === "x" ? "width" : "height"]: props.length * 3 + "vw",
   [props.orientation === "x" ? "height" : "width"]: "3vw",
 }))`
-  position: fixed;
+  position: absolute;
   box-sizing: border-box;
   border: 1px solid red;
   background-image: url(${(props) => {
@@ -53,7 +53,7 @@ const ElasticDiv = styled.div.attrs((props) => ({
   @media (max-width: 1250px) {
     ${(props) => [props.orientation === "x" ? "width" : "height"]}: ${(props) =>
       props.length * 3.5}vh;
-    ${(props) => [props.orientation === "x" ? "height" : "width"]}: "3vh";
+    ${(props) => [props.orientation === "x" ? "height" : "width"]}: 3vh;
   }
   @keyframes float {
     from {
