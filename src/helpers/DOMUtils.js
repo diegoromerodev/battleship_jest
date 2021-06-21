@@ -27,7 +27,8 @@ const DOMUtils = () => {
     target.style.opacity = 0.5;
     window.addEventListener(
       eventName === "touchstart" ? "touchmove" : "mousemove",
-      drag
+      drag,
+      { passive: false }
     );
     window.addEventListener(
       eventName === "touchstart" ? "touchend" : "mouseup",
@@ -43,7 +44,8 @@ const DOMUtils = () => {
         });
         window.removeEventListener(
           eventName === "touchstart" ? "touchmove" : "mousemove",
-          drag
+          drag,
+          { passive: false }
         );
       },
       { once: true }
@@ -51,6 +53,7 @@ const DOMUtils = () => {
   };
 
   const drag = (e, orientation) => {
+    e.preventDefault();
     const offTop = orientation === "x" ? target.offsetHeight / 2 : 0;
     const offLeft = orientation === "y" ? target.offsetWidth / 2 : 0;
     if (e.type === "touchmove") {

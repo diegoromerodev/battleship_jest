@@ -49,11 +49,13 @@ const Cells = (props) => {
       return;
     }
 
-    if (!result)
+    if (!result && mode !== "npc")
       setTimeout(
         () => setTurn((prevState) => (prevState === "p-1" ? "p-2" : "p-1")),
         900
       );
+    if (!result && mode === "npc")
+      setTurn((prevState) => (prevState === "p-1" ? "p-2" : "p-1"));
   };
 
   const handleCellClick = (key) => {
