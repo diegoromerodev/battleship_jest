@@ -16,7 +16,7 @@ const GlobalStyles = createGlobalStyle`
         -ms-user-select: none;
         user-select: none;
         background: #12aaf0 url(${bg}) no-repeat fixed center;
-
+        background-size: cover;
     }
 `;
 
