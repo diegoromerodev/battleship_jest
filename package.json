@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest --watch",
     "start": "npx webpack serve --hot --open --mode development",
-    "build": "npx webpack --watch"
+    "build": "npx webpack"
   },
   "repository": {
     "type": "git",
