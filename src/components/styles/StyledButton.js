@@ -16,6 +16,9 @@ const StyledButton = styled.button`
     font-size: 1.4em;
     padding: 15px 30px;
   }
+  &.start-game {
+    background-color: #239c0a;
+  }
 `;
 
 export default StyledButton;

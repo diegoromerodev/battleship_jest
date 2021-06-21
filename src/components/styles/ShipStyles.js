@@ -43,8 +43,28 @@ const ElasticDiv = styled.div.attrs((props) => ({
   pointer-events: ${(props) => (props.setting ? "" : "none")};
   opacity: 0.8;
   transition: background-color 0.4s ease-in-out;
+  transition: opacity 0.4s ease-in-out;
+  animation: float 2s infinite;
+  animation-direction: alternate;
+  &:nth-child(even) {
+    animation: float 3s infinite;
+    animation-direction: alternate;
+  }
+  @media (max-width: 1250px) {
+    ${(props) => [props.orientation === "x" ? "width" : "height"]}: ${(props) =>
+      props.length * 3.5}vh;
+    ${(props) => [props.orientation === "x" ? "height" : "width"]}: "3vh";
+  }
+  @keyframes float {
+    from {
+      transform: translateX(-1.5px);
+    }
+    to {
+      transform: translateX(1.5px);
+    }
+  }
   &.hidden {
-    display: none;
+    opacity: 0;
     pointer-events: none;
   }
   &.sunk {

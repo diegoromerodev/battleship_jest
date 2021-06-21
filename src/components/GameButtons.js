@@ -10,11 +10,26 @@ const ButtonsContainer = styled.div`
 `;
 
 const GameButtons = (props) => {
-  const { setRotate, setSetting, setTurn, mode, turn, rotate } = props;
+  const {
+    setRotate,
+    setSetting,
+    setMode,
+    setTurn,
+    mode,
+    turn,
+    rotate,
+    startGame,
+  } = props;
   return (
     <ButtonsContainer>
-      <StyledButton onClick={() => setSetting(false)}>
-        DONE SETTING
+      <StyledButton
+        className="start-game"
+        onClick={() => {
+          setSetting(false);
+          setTurn("p-1");
+        }}
+      >
+        START BATTLE
       </StyledButton>
       <StyledButton onClick={() => setRotate(!rotate)}>
         ROTATE TOOL: {rotate ? "YES" : "NO"}
@@ -24,6 +39,14 @@ const GameButtons = (props) => {
           SET NEXT PLAYER
         </StyledButton>
       )}
+      <StyledButton
+        onClick={() => {
+          setMode(mode === "npc" ? "2p" : "npc");
+          startGame();
+        }}
+      >
+        MODE: {mode.toUpperCase()}
+      </StyledButton>
     </ButtonsContainer>
   );
 };

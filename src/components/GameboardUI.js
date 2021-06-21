@@ -44,10 +44,14 @@ const GameboardUI = ({
           setShipLocations={setShipLocations}
         />
       </BoardDiv>
-      {player?.type && (
-        <p>
-          {player?.type === "p-1" ? "Player 1" : "Player 2"} ships left:{" "}
-          {10 - allSunk.length}
+      {player?.type && !setting && (
+        <p style={{ fontSize: "2em" }}>
+          {player?.type === "p-1"
+            ? "Player 1"
+            : mode === "npc"
+            ? "Computer"
+            : "Player 2"}{" "}
+          ships left: {10 - allSunk.length}
         </p>
       )}
     </div>

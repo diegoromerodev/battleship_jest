@@ -10,7 +10,7 @@ import StyledButton from "./styles/StyledButton";
 import AppContainer from "./styles/AppContainer";
 
 const App = () => {
-  const [gameOver, setGameOver] = useState(false);
+  const [gameOver, setGameOver] = useState(null);
   const [homeShipLocations, setHomeShipLocations] = useState([]);
   const [awayShipLocations, setAwayShipLocations] = useState([]);
   const [rotate, setRotate] = useState(false);
@@ -40,8 +40,6 @@ const App = () => {
     setSetting(true);
   };
 
-  console.warn("-------------------");
-
   return (
     <AppContainer>
       {gameOver && <GameOverScreen startGame={startGame} turn={turn} />}
@@ -60,16 +58,18 @@ const App = () => {
         setGameOver={setGameOver}
       />
       <StyledButton onClick={startGame} className="start-button">
-        START GAME
+        SET SHIPS / RESTART GAME
       </StyledButton>
-      {setting && (
+      {setting && gameOver !== null && (
         <GameButtons
+          setMode={setMode}
           setSetting={setSetting}
           setRotate={setRotate}
           setTurn={setTurn}
           mode={mode}
           turn={turn}
           rotate={rotate}
+          startGame={startGame}
         />
       )}
       <AllShips

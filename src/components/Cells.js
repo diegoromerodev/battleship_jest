@@ -50,7 +50,11 @@ const Cells = (props) => {
       return;
     }
 
-    if (!result) setTurn((prevState) => (prevState === "p-1" ? "p-2" : "p-1"));
+    if (!result)
+      setTimeout(
+        () => setTurn((prevState) => (prevState === "p-1" ? "p-2" : "p-1")),
+        900
+      );
   };
 
   const handleCellClick = (key) => {
