@@ -6,9 +6,11 @@ import AllShips from "./AllShips";
 import AllGameBoard from "./AllGameBoard";
 import GameButtons from "./GameButtons";
 import GameOverScreen from "./screens/GameOverScreen";
+import StyledButton from "./styles/StyledButton";
+import AppContainer from "./styles/AppContainer";
 
 const App = () => {
-  const [gameOver, setGameOver] = useState(true);
+  const [gameOver, setGameOver] = useState(false);
   const [homeShipLocations, setHomeShipLocations] = useState([]);
   const [awayShipLocations, setAwayShipLocations] = useState([]);
   const [rotate, setRotate] = useState(false);
@@ -41,9 +43,9 @@ const App = () => {
   console.warn("-------------------");
 
   return (
-    <div>
+    <AppContainer>
       {gameOver && <GameOverScreen startGame={startGame} turn={turn} />}
-      <h1>BATTLESHIP</h1>
+      <h1 className="logo">BATTLESHIP</h1>
       {!setting && mode !== "npc" && <NextPlayerScreen turn={turn} />}
       <AllGameBoard
         setting={setting}
@@ -57,7 +59,9 @@ const App = () => {
         setTurn={setTurn}
         setGameOver={setGameOver}
       />
-      <button onClick={startGame}>START GAME</button>
+      <StyledButton onClick={startGame} className="start-button">
+        START GAME
+      </StyledButton>
       {setting && (
         <GameButtons
           setSetting={setSetting}
@@ -77,7 +81,7 @@ const App = () => {
         setHomeShipLocations={setHomeShipLocations}
         setAwayShipLocations={setAwayShipLocations}
       />
-    </div>
+    </AppContainer>
   );
 };
 

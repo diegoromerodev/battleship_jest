@@ -47,7 +47,8 @@ const ShipBlock = ({
           placeShips,
           setShipLocations,
           number,
-          orientation
+          orientation,
+          location
         )
       }
       onMouseDown={(e) =>

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import StyledButton from "../styles/StyledButton";
 
 const GameOverContainer = styled.div`
   position: fixed;
@@ -20,7 +21,7 @@ const GameOverScreen = (props) => {
     <GameOverContainer>
       <h2>GAME END.</h2>
       <h3>{turn === "p-1" ? "PLAYER 1" : "PLAYER 2"} WINS</h3>
-      <button onClick={startGame}>NEW GAME</button>
+      <StyledButton onClick={startGame}>NEW GAME</StyledButton>
     </GameOverContainer>
   );
 };

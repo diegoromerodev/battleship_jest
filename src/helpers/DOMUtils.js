@@ -57,11 +57,14 @@ const DOMUtils = () => {
     placeShips,
     setShipLocations,
     number,
-    orientation
+    orientation,
+    location
   ) => {
+    console.log(rotate);
     if (rotate && setting) {
       placeShips(number, location[0], orientation === "x" ? "y" : "x");
       setShipLocations((prevState) => {
+        console.log(prevState, number, location, orientation);
         return [...prevState];
       });
       return true;

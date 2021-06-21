@@ -12,8 +12,8 @@ import xlShipX from "../../assets/xlShipX.png";
 const ElasticDiv = styled.div.attrs((props) => ({
   top: props.top + "px",
   left: props.left + "px",
-  [props.orientation === "x" ? "width" : "height"]: props.length * 2 + "vw",
-  [props.orientation === "x" ? "height" : "width"]: "2vw",
+  [props.orientation === "x" ? "width" : "height"]: props.length * 3 + "vw",
+  [props.orientation === "x" ? "height" : "width"]: "3vw",
 }))`
   position: fixed;
   box-sizing: border-box;

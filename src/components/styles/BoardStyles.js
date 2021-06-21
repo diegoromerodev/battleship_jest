@@ -6,22 +6,23 @@ import hit from "../../assets/hit.png";
 
 const BoardDiv = styled.div`
   display: grid;
-  grid-template-columns: repeat(10, 2vw);
+  grid-template-columns: repeat(10, 3vw);
   background-image: url(${water});
   background-size: cover;
   background-position: center;
 `;
 
 const BoardCell = styled.div`
-  border: 1px solid white;
+  border: 3px solid white;
   border-top: none;
+  border-left: none;
   background-color: lightblue;
-  width: 2vw;
-  height: 2vw;
+  width: 3vw;
+  height: 3vw;
   display: inline-block;
   transition: all 0.2s ease-in-out;
   cursor: pointer;
-  opacity: 0.1;
+  opacity: 0.3;
   &:hover {
     background-color: navy;
     opacity: 0.5;
@@ -33,6 +34,7 @@ const BoardCell = styled.div`
     background-size: contain;
     background-position: center;
     background-color: rgba(190, 25, 5, 0.4);
+    border-color: rgba(190, 25, 5, 0.4);
     opacity: 0.9;
   }
   &.missed {
@@ -41,6 +43,8 @@ const BoardCell = styled.div`
     background-position: center;
     background-color: rgba(5, 5, 5, 0.2);
     opacity: 0.9;
+    border-color: rgba(5, 5, 5, 0.2);
+    border-radius: 50%;
   }
 `;
 
